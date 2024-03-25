@@ -1,0 +1,160 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="PD24Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“PD24.dbo.Tb_01_Project”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="Tb_01_Project">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="pname" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="pname" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="project_id" Type="nchar" MaxLength="20" />
+          <Property Name="pici" Type="int" />
+          <Property Name="pdate" Type="date" />
+          <Property Name="pend" Type="date" />
+          <Property Name="PDM" Type="nchar" MaxLength="10" />
+          <Property Name="pType" Type="varchar" MaxLength="20" />
+          <Property Name="DesignM" Type="varchar" MaxLength="20" />
+          <Property Name="pWork" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“PD24.dbo.Tb_02_User”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="Tb_02_User">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="uname" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="uname" Type="nchar" MaxLength="20" Nullable="false" />
+          <Property Name="upaswd" Type="nchar" MaxLength="20" />
+          <Property Name="ugp" Type="nchar" MaxLength="20" />
+          <Property Name="ujob" Type="nchar" MaxLength="20" />
+          <Property Name="uphone" Type="nchar" MaxLength="20" />
+        </EntityType>
+        <EntityContainer Name="PD24ModelStoreContainer">
+          <EntitySet Name="Tb_01_Project" EntityType="Self.Tb_01_Project" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Tb_01_Project].[Id] AS [Id], 
+    [Tb_01_Project].[pname] AS [pname], 
+    [Tb_01_Project].[project_id] AS [project_id], 
+    [Tb_01_Project].[pici] AS [pici], 
+    [Tb_01_Project].[pdate] AS [pdate], 
+    [Tb_01_Project].[pend] AS [pend], 
+    [Tb_01_Project].[PDM] AS [PDM], 
+    [Tb_01_Project].[pType] AS [pType], 
+    [Tb_01_Project].[DesignM] AS [DesignM], 
+    [Tb_01_Project].[pWork] AS [pWork]
+    FROM [dbo].[Tb_01_Project] AS [Tb_01_Project]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Tb_02_User" EntityType="Self.Tb_02_User" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Tb_02_User].[Id] AS [Id], 
+    [Tb_02_User].[uname] AS [uname], 
+    [Tb_02_User].[upaswd] AS [upaswd], 
+    [Tb_02_User].[ugp] AS [ugp], 
+    [Tb_02_User].[ujob] AS [ujob], 
+    [Tb_02_User].[uphone] AS [uphone]
+    FROM [dbo].[Tb_02_User] AS [Tb_02_User]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PD24Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Tb_01_Project">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="pname" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="pname" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="project_id" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Name="pici" Type="Int32" />
+          <Property Name="pdate" Type="DateTime" Precision="0" />
+          <Property Name="pend" Type="DateTime" Precision="0" />
+          <Property Name="PDM" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="pType" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DesignM" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="pWork" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Tb_02_User">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="uname" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="uname" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="upaswd" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Name="ugp" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Name="ujob" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Name="uphone" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="PD24Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Tb_01_Project" EntityType="Self.Tb_01_Project" />
+          <EntitySet Name="Tb_02_User" EntityType="Self.Tb_02_User" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="PD24ModelStoreContainer" CdmEntityContainer="PD24Entities">
+          <EntitySetMapping Name="Tb_01_Project">
+            <EntityTypeMapping TypeName="PD24Model.Tb_01_Project">
+              <MappingFragment StoreEntitySet="Tb_01_Project">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="pname" ColumnName="pname" />
+                <ScalarProperty Name="project_id" ColumnName="project_id" />
+                <ScalarProperty Name="pici" ColumnName="pici" />
+                <ScalarProperty Name="pdate" ColumnName="pdate" />
+                <ScalarProperty Name="pend" ColumnName="pend" />
+                <ScalarProperty Name="PDM" ColumnName="PDM" />
+                <ScalarProperty Name="pType" ColumnName="pType" />
+                <ScalarProperty Name="DesignM" ColumnName="DesignM" />
+                <ScalarProperty Name="pWork" ColumnName="pWork" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tb_02_User">
+            <EntityTypeMapping TypeName="PD24Model.Tb_02_User">
+              <MappingFragment StoreEntitySet="Tb_02_User">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="uname" ColumnName="uname" />
+                <ScalarProperty Name="upaswd" ColumnName="upaswd" />
+                <ScalarProperty Name="ugp" ColumnName="ugp" />
+                <ScalarProperty Name="ujob" ColumnName="ujob" />
+                <ScalarProperty Name="uphone" ColumnName="uphone" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
